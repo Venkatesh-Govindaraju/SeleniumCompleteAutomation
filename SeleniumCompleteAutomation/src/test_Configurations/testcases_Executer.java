@@ -14,8 +14,7 @@ public class testcases_Executer
 	static int ExecutionCloumnNumber=1, ExecutionRowNumber=1;
 	static int TestNameCloumnNumber=2, TestNameRowNumber=1;
 	
-	static getTestCaseExecutionCategoryFromTestDataSheet readDataFromTestDataSheetObject = new getTestCaseExecutionCategoryFromTestDataSheet();
-	static getTestCaseNameFromTestDataSheet getTestCaseNameFromTestDataSheetObject = new getTestCaseNameFromTestDataSheet();
+	static readContentsFromTestDataSheet readContentsFromTestDataSheetObject = new readContentsFromTestDataSheet();
 	
 	public static void main(String[] args) 
 	{
@@ -27,7 +26,7 @@ public class testcases_Executer
 		
 		try
 		{
-			TestExecutionCategory = readDataFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
+			TestExecutionCategory = readContentsFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
 		}
 		catch (ArrayIndexOutOfBoundsException e) 
 		{
@@ -38,7 +37,7 @@ public class testcases_Executer
 			return;
 		}
 		
-		TestCaseName = getTestCaseNameFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
+		TestCaseName = readContentsFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
 			
 		while (TestExecutionCategory != "Y" && TestExecutionCategory != "")
 		{
@@ -46,8 +45,8 @@ public class testcases_Executer
 			ExecutionRowNumber = ExecutionRowNumber + 1;
 			TestNameRowNumber = TestNameRowNumber + 1;
 			logger.info("Now, ExecutionRowNumber="+ExecutionRowNumber+" and TestNameRowNumber="+TestNameRowNumber);
-			TestExecutionCategory = readDataFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
-			TestCaseName = getTestCaseNameFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
+			TestExecutionCategory = readContentsFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
+			TestCaseName = readContentsFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
 			logger.info("Now, TestExecutionCategory="+TestExecutionCategory+" and TestCaseName="+TestCaseName);
 			
 			while (TestExecutionCategory != "N" && TestExecutionCategory != "")
@@ -77,7 +76,7 @@ public class testcases_Executer
 				logger.info("Now, ExecutionRowNumber="+ExecutionRowNumber+" and TestNameRowNumber="+TestNameRowNumber);
 				try
 				{
-					TestExecutionCategory = readDataFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
+					TestExecutionCategory = readContentsFromTestDataSheetObject.getTestCaseExecutionCategoryFromTestDataSheet(ExecutionCloumnNumber,ExecutionRowNumber);
 				}
 				catch (ArrayIndexOutOfBoundsException e) 
 				{
@@ -87,7 +86,7 @@ public class testcases_Executer
 					logger.info("********************************* TEST EXECUTION COMPLETED *********************************");
 					break;
 				}
-				TestCaseName = getTestCaseNameFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
+				TestCaseName = readContentsFromTestDataSheetObject.getTestCaseNameFromTestDataSheet(TestNameCloumnNumber,TestNameRowNumber);
 				logger.info("Now, TestExecutionCategory="+TestExecutionCategory+" and TestCaseName="+TestCaseName);
 				
 			}	break;
