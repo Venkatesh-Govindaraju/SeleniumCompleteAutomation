@@ -26,6 +26,7 @@ public class getTestCaseNameFromTestDataSheet
 		
 		try 
 		{
+			logger.info("Entered into \"getTestCaseNameFromTestDataSheet\" class to get TestCase Name.........");
 			Workbook ExcelWorkBook = Workbook.getWorkbook(TestDataExcelSheetPath);
 			logger.info("Opened ExcelWorkBook...");
 			Sheet ExcelSheet = ExcelWorkBook.getSheet("Test_Data");
@@ -34,6 +35,7 @@ public class getTestCaseNameFromTestDataSheet
 	        logger.info("Copying content from Cell ("+CloumnNumber+","+RowNumber+") [Foramt : Column, Row]...");
 	        ValueFromExcelSheet = ExcelSheetCell.getContents();
 	        logger.info("Cell Content = "+ValueFromExcelSheet);        
+	        logger.info("Exit from \"getTestCaseNameFromTestDataSheet\" class with TestCase Name = "+ValueFromExcelSheet);
 		}
 		catch (BiffException e) 
 		{

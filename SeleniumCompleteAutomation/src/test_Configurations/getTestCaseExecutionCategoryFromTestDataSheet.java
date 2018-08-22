@@ -26,6 +26,7 @@ public class getTestCaseExecutionCategoryFromTestDataSheet
 		
 		try 
 		{
+			logger.info("Entered into \"getTestCaseExecutionCategoryFromTestDataSheet\" class to get Execution coulmn value.........");
 			Workbook ExcelWorkBook = Workbook.getWorkbook(TestDataExcelSheetPath);
 			logger.info("Opened ExcelWorkBook...");
 			Sheet ExcelSheet = ExcelWorkBook.getSheet("Test_Data");
@@ -33,7 +34,8 @@ public class getTestCaseExecutionCategoryFromTestDataSheet
 	        Cell ExcelSheetCell = ExcelSheet.getCell(CloumnNumber,RowNumber);
 	        logger.info("Copying content from Cell ("+CloumnNumber+","+RowNumber+") [Foramt : Column, Row]...");
 	        ValueFromExcelSheet = ExcelSheetCell.getContents();
-	        logger.info("Cell Content = "+ValueFromExcelSheet);        
+	        logger.info("Cell Content = "+ValueFromExcelSheet); 
+	        logger.info("Exit from \"getTestCaseExecutionCategoryFromTestDataSheet\" class with Execution coulmn value = "+ValueFromExcelSheet);
 		}
 		catch (BiffException e) 
 		{
@@ -43,7 +45,7 @@ public class getTestCaseExecutionCategoryFromTestDataSheet
 		{
 			e.printStackTrace();
 		}
-	
+		
 		return ValueFromExcelSheet;
 	
 	}
