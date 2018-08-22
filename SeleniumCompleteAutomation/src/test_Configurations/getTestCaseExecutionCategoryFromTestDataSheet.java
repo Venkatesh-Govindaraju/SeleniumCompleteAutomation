@@ -11,20 +11,18 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-public class readDataFromTestDataSheet 
+
+public class getTestCaseExecutionCategoryFromTestDataSheet 
 {
 	public static String ValueFromExcelSheet;
 	
-	public static String readDataFromTestDataSheet()
-	{
-
-		int CloumnNumber=1, RowNumber=1;
+	public static String getTestCaseExecutionCategoryFromTestDataSheet(int CloumnNumber, int RowNumber)
+	{		
 		
-		
-		Logger logger = Logger.getLogger("readDataFromTestDataSheet");	
+		Logger logger = Logger.getLogger("getTestCaseExecutionCategoryFromTestDataSheet");	
 		PropertyConfigurator.configure("./src/test_Logs/log4j.properties");
 		
-		File TestDataExcelSheetPath = new File("H:\\Software_Testing\\Test_Automation\\Selenium\\SeleniumTestAutomation\\Git\\Repository\\SeleniumCompleteAutomation\\src\\test_Data\\test_data.xlsx");
+		File TestDataExcelSheetPath = new File("H:\\Software_Testing\\Test_Automation\\Selenium\\SeleniumTestAutomation\\Git\\Repository\\SeleniumCompleteAutomation\\src\\test_Data\\test_data.xls");
 		
 		try 
 		{
@@ -35,7 +33,7 @@ public class readDataFromTestDataSheet
 	        Cell ExcelSheetCell = ExcelSheet.getCell(CloumnNumber,RowNumber);
 	        logger.info("Copying content from Cell ("+CloumnNumber+","+RowNumber+") [Foramt : Column, Row]...");
 	        ValueFromExcelSheet = ExcelSheetCell.getContents();
-	        logger.info("Cell Content = "+ValueFromExcelSheet);	        
+	        logger.info("Cell Content = "+ValueFromExcelSheet);        
 		}
 		catch (BiffException e) 
 		{
@@ -45,9 +43,9 @@ public class readDataFromTestDataSheet
 		{
 			e.printStackTrace();
 		}
-		
+	
 		return ValueFromExcelSheet;
-		
+	
 	}
 
 }
